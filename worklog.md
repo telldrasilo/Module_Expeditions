@@ -110,86 +110,16 @@ Stage Summary:
 ## Work records
 
 ---
-Task ID: 4
+Task ID: 8
 Agent: main
-Task: Study project, synthesize Q&A into development documentation for Expeditions module
+Task: Document repo layout alignment with GitHub Module_Expeditions; worklog hygiene
 
 Work Log:
-- Cloned SCv5 repository to /home/z/my-project/SCv5/
-- Read all project source code: game-store.ts, skin-shell.tsx, page.tsx, layout.tsx, format.ts
-- Read all TZ documentation (12 parts, Russian spec + English split)
-- Read all module documentation (8 parts: scope, domain model, public API, integration contracts, i18n, data authority, risks, delivery manifest)
-- Read archive files and worklog
-- Synthesized user Q&A answers into unified concept
-- Created comprehensive development documentation at docs/dev/expeditions-module-dev-doc.md
+- Archived older work records (Tasks 4–6) to `archive/00-prior-work-records-tasks-4-6.md`; Task 7 to `archive/03-work-record-expeditions-implementation.md` per agent protocol
+- Recorded delivery context: local tree was flattened to match `https://github.com/telldrasilo/Module_Expeditions` (app/src/components at repo root, no nested `SCv5/` folder in Git)
+- Noted prior push used `git subtree split --prefix=SCv5` then `git push --force` to `origin/main` so remote history was replaced; clones should use root `npm install` / `npm run dev`
+- Root `.gitignore` excludes `node_modules/`, `.next/`, `.env*` (keep `.env.example` only)
 
 Stage Summary:
-- Development documentation created: `docs/dev/expeditions-module-dev-doc.md` (v1.0)
-- 14 sections + 3 appendices (locations catalog, enemies catalog, elements catalog)
-- MVP plan: 6 phases, ~10 working days
-- All user decisions reflected in document
-- No code changes yet — documentation only
-
----
-Task ID: 5
-Agent: main
-Task: Update documentation based on user Q&A round 3 answers
-
-Work Log:
-- Updated 04-mechanics.md: weapon breakage no longer causes expedition failure — mission completes, weaponBroken flag set, outcome = partial
-- Updated 07-weapon-damage.md: scars reframed as positive resource for enchantment module, durability=0 continues expedition, edge cases updated
-- Updated 05-ui-ux.md: added Intendant tab placeholder, Guild channel in right panel with auto-switch checkbox, message store spec
-- Updated 10-integration.md: right panel integration now uses message store with Guild channel tabs, autoSwitchToGuild flag
-- Updated 03-domain-model.md: added weaponBroken flag to ExpeditionRun, added ChatMessage type (3.14)
-- Updated 01-concept-and-scope.md: added principles about scars as resource and weapon breakage ≠ failure, added Guild channel and Intendant placeholder to scope
-- Identified gap: location lore/storylines need development
-
-Stage Summary:
-- Documentation updated to reflect 6 user answers from Q&A round 3
-- Key changes: weapon break model, scars as positive resource, Guild channel + message store, Intendant placeholder
-- Location storyline/lore identified as next content gap to address
-
----
-Task ID: 6
-Agent: main
-Task: Expand location lore, audit docs, rewrite MVP plan
-
-Work Log:
-- Audited all 15 doc files: sizes range 16-263 lines, well-organized, no oversized files
-- Expanded appendix-a-locations.md from 16 lines (table only) to ~120 lines with full lore for all 10 locations
-- Each location now has: data table, description, lore (2-3 paragraphs tying to Arkedon history), quest hooks (3-4 examples)
-- Lore ties locations to: Builders of Monoliths, War of Three Barons, Swamp Plague, Eastern Marches geography
-- Updated 00-index.md to v1.1 with changelog entry
-- Rewrote 11-mvp-plan.md: added Phase 0 (lore/content), expanded to 7 phases, added dependency graph, open design questions, updated file structure with new components (IntendantTab, GuildChannel, lootCalculator)
-
-Stage Summary:
-- Location lore complete: all 10 MVP locations have narrative depth
-- MVP plan now has 7 phases (0-6) with Track A (content) and Track B (code)
-- 6 open design questions identified for future resolution
-- Documentation structure validated: 15 files, well-organized, no files > 263 lines
-
----
-Task ID: 7
-Agent: main
-Task: Implement Expeditions module — Phase 1-3 (types, data, store, logic, UI, integration)
-
-Work Log:
-- Created types.ts with all 27 domain types (Biome, Element, Location, Enemy, WeaponDamage, QuestGiver, etc.)
-- Created 8 data catalogs: locations (10), elements (13), enemies (9), questGivers (6), questTemplates (5), encounters (13), stubResources (15), biomeAdjacency
-- Created constants.ts with module defaults, damage tables, duration multipliers
-- Created index.ts as public API entry point
-- Created 6 logic libraries: rng, questGenerator, eventGenerator, damageCalculator, lootCalculator, expeditionResolver
-- Created expedition-store.ts (Zustand) with full state management: board, dispatch, timer tick, skip, resolve, collect
-- Extended game-store.ts with: stubWeapon, expeditionResources, guildReputation, chatMessages, guildChannelActive, autoSwitchToGuild, activeModule, and all new actions
-- Created 12 UI components: ExpeditionsPanel, ExpeditionsTab, QuestBoard, QuestCard, DispatchScreen, ActiveExpedition, EventLog, ExpeditionResults, EncyclopediaTab, IntendantTab, DevPanel, GuildChannel
-- Modified SkinShell: Forge/Guild navigation, conditional module rendering, Dev mode toggle + panel, right rail with Guild channel tab, dynamic resource bar
-- TypeScript: clean compilation (0 errors)
-- Build: successful (Next.js 16.1.1)
-- Tests: 29/29 passing
-
-Stage Summary:
-- Full Expeditions module implemented (types → data → store → logic → UI → integration)
-- Module is functional: quest board generation, expedition dispatch, timer, events, resolution, loot collection
-- Dev mode with time scale, damage multiplier, skip buttons
-- Guild channel in right panel with auto-switch
-- All 3 Guild tabs: Expeditions, Encyclopedia, Intendant (placeholder)
+- Single current work record in this file; Task 7 preserved in archive
+- Contributors: treat this repo as the Next app root; do not reintroduce a `SCv5/` wrapper in Git without updating README and AGENTS paths
