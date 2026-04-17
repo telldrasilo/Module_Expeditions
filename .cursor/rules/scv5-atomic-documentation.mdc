@@ -1,0 +1,16 @@
+---
+description: Atomic documentation rules for SCv5 docs (Markdown hubs, links, layers)
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# SCv5 documentation
+
+When editing files under `docs/`:
+
+- Follow **`docs/spec/atomic-documentation.md`** (atomic notes, `00-index.md` hubs, relative links only — no wikilinks as canonical).
+- After adding/removing/renaming doc files in a pack, update that pack’s **`00-index.md`**.
+- Prefer linking to the **canonical** atom for a fact; avoid duplicating long passages across files.
+- For methodology details, see **`docs/spec/00-index.md`**.
+
+Project-wide agent context: **`AGENTS.md`**.

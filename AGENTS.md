@@ -2,7 +2,7 @@
 
 ## Scope
 
-This file applies to work in the **SwordCraft Idle Forge** app under this directory (`SCv5/`): Next.js UI, game shell, and documentation in `docs/`.
+This file applies to work in the **SwordCraft Idle Forge** app in this repository: Next.js UI, game shell, and documentation in `docs/`.
 
 ## Documentation
 
